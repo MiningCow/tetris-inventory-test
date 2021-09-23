@@ -1,6 +1,6 @@
 
-class Tile {
-  constructor(origin = {x: 2, y: 2}, x, y, rotation = 0) {
+class Item {
+  constructor(x, y, rotation = 0, origin = {x: 2, y: 2}) {
     this.shape = [
       " #  ",
       " ## ",
