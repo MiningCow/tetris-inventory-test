@@ -15,7 +15,7 @@ function drawBoard() {
     ctx.beginPath();
     ctx.moveTo(0, y * tileSize);
     ctx.lineTo(canvas.width, y * tileSize);
-    ctx.stroke(); 
+    ctx.stroke();
   }
   for (let x = 0; x < canvasWidth + 1; x++) {
     ctx.lineWidth = 6;
@@ -30,10 +30,9 @@ function main() {
   ctx.fillStyle = "#cccccc";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   drawBoard();
-  // items.forEach(item => {
-  //   item.draw();
-  // });
-  frame++;
+  items.forEach(item => {
+    item.draw();
+  });
   requestAnimationFrame(main);
 }
 
