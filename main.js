@@ -10,7 +10,6 @@ console.log(boardWidth, boardHeight);
 
 let heldItem;
 let board = create2DArray(boardWidth, boardHeight);
-console.log(board);
 let items = [
   new Item({
     x: 200,

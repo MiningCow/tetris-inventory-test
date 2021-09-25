@@ -7,21 +7,8 @@ window.addEventListener("keyup", event => {
     switch (event.key) {
       case "1":
         heldItem = new Item({
-          x: 2*tileSize,
-          y: 2*tileSize,
-          origin: {x: 1, y: 1},
-          color: "#FFE800",
-          shape: [
-            " # ",
-            " ##",
-            "  #"
-          ]
-        })
-        break;
-      case "2":
-        heldItem = new Item({
-          x: 2*tileSize,
-          y: 2*tileSize,
+          x: mouseX,
+          y: mouseY,
           origin: {x: 1, y: 1},
           color: "#FF0000",
           shape: [
@@ -31,12 +18,12 @@ window.addEventListener("keyup", event => {
           ]
         })
         break;
-      case "3":
+      case "2":
         heldItem = new Item({
-          x: 2*tileSize,
-          y: 2*tileSize,
+          x: mouseX,
+          y: mouseY,
           origin: {x: 1, y: 1},
-          color: "#FFE800",
+          color: "#00FF00",
           shape: [
             " # ",
             " ##",
@@ -44,16 +31,68 @@ window.addEventListener("keyup", event => {
           ]
         })
         break;
-      case "4":
+      case "3":
         heldItem = new Item({
-          x: 2*tileSize,
-          y: 2*tileSize,
+          x: mouseX,
+          y: mouseY,
           origin: {x: 1, y: 1},
-          color: "#FFE800",
+          color: "#0000FF",
           shape: [
             " # ",
-            " ##",
-            "  #"
+            " # ",
+            "## "
+          ]
+        })
+        break;
+      case "4":
+        heldItem = new Item({
+          x: mouseX,
+          y: mouseY,
+          origin: {x: 1, y: 1},
+          color: "#FFFF00",
+          shape: [
+            "##",
+            "##"
+          ]
+        })
+        break;
+      case "5":
+        heldItem = new Item({
+          x: mouseX,
+          y: mouseY,
+          origin: {x: 1, y: 1},
+          color: "#00FFFF",
+          shape: [
+            " #  ",
+            " #  ",
+            " #  ",
+            " #  "
+          ]
+        })
+        break;
+      case "6":
+        heldItem = new Item({
+          x: mouseX,
+          y: mouseY,
+          origin: {x: 1, y: 1},
+          color: "#FF00FF",
+          shape: [
+            " # ",
+            "###",
+            "   "
+          ]
+        })
+        break;
+      case "7":
+        heldItem = new Item({
+          x: mouseX,
+          y: mouseY,
+          origin: {x: 1, y: 1},
+          color: "#FFA500",
+          shape: [
+            " # ",
+            " # ",
+            " ##"
           ]
         })
         break;
@@ -68,3 +107,5 @@ canvas.addEventListener("mousemove", event => {
     mouseX = Math.round(event.clientX - rect.left);
     mouseY = Math.round(event.clientY - rect.top);
 });
+
+//#FFE800 Nice yellow color
