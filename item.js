@@ -6,6 +6,7 @@ class Item {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.id = Date.now();
   }
   rotate() {
 
