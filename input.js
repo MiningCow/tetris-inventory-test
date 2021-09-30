@@ -107,5 +107,8 @@ canvas.addEventListener("mousemove", event => {
     mouseX = Math.round(event.clientX - rect.left);
     mouseY = Math.round(event.clientY - rect.top);
 });
+canvas.addEventListener("mousedown", event => {
+    if (event.button == 0 && heldItem) heldItem.place();
+});
 
 //#FFE800 Nice yellow color
