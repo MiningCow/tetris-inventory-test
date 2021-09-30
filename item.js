@@ -24,7 +24,9 @@ class Item {
         }
       }
     }
-
+    heldItem.x = placeX*tileSize;
+    heldItem.y = placeY*tileSize;
+    items.push(heldItem);
     heldItem = undefined;
   }
   draw(preview = false) {

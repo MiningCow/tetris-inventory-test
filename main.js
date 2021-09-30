@@ -57,7 +57,7 @@ function main() {
       item.draw();
     });
   }
-  drawBoard();
+  // drawBoard();
   drawGrid();
   if (heldItem) {
     heldItem.draw();
