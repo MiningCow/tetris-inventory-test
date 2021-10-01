@@ -39,10 +39,11 @@ function drawGrid() {
 }
 
 function drawBoard() {
+  ctx.fillStyle = "#696969";
   for (let x = 0; x < boardWidth; x++) {
     for (let y = 0; y < boardHeight; y++) {
       if (board[x][y]) {
-        ctx.fillStyle = board[x][y].color;
+        // ctx.fillStyle = board[x][y].color;
         ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
       }
     }
@@ -52,12 +53,12 @@ function drawBoard() {
 function main() {
   ctx.fillStyle = "#cccccc";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // drawBoard();
   if (items) {
     items.forEach(item => {
       item.draw();
     });
   }
-  // drawBoard();
   drawGrid();
   if (heldItem) {
     heldItem.draw();
