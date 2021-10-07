@@ -89,10 +89,20 @@ window.addEventListener("keyup", event => {
                 " ##"
             ]})
             break;
+        case "ArrowLeft":
+            heldItem.rotate("left");
+            break;
+        case "ArrowRight":
+            heldItem.rotate("right");
+            break;
+        case "ArrowUp":
+            heldItem.rotate("flip");
+            break;
         case " ":
             heldItem = undefined;
             break;
         default:
+            console.log(event.key);
             return;
     }
     event.preventDefault();

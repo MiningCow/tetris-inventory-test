@@ -8,7 +8,31 @@ class Item {
     this.color = color;
     this.id = Date.now();
   }
-  rotate() {
+  rotate(rotation) {
+    let rotatedShape = [...this.shape];
+    switch (rotation) {
+      case "left":
+        for (let y = -this.origin.y; y < this.shape.length - this.origin.y; y++) {
+          for (let x = -this.origin.x; x < this.shape.length - this.origin.x; x++) {
+            rotatedShape[y+1] = replaceChar(rotatedShape[y+1], x+1, this.shape[x+1].charAt(-y+1));
+          }
+        }
+        this.shape = rotatedShape;
+        break;
+      case "right":
+        for (let y = -this.origin.y; y < this.shape.length - this.origin.y; y++) {
+          for (let x = -this.origin.x; x < this.shape.length - this.origin.x; x++) {
+            rotatedShape[y+1] = replaceChar(rotatedShape[y+1], x+1, this.shape[-x+1].charAt(y+1));
+          }
+        }
+        this.shape = rotatedShape;
+        break;
+      case "flip":
+        break;
+      default:
+        console.log("Incorrect rotation arguments");
+        return;
+    }
   }
   place () {
     let placeX = Math.abs(Math.round((mouseX - tileSize/2) / tileSize));

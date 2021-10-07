@@ -20,6 +20,11 @@ function create2DArray(rows, columns) {
   return arr;
 }
 
+function replaceChar(str, index, char) {
+  console.log(`str: ${str}, index: ${index}, char: ${char}`);
+  return(str.substr(0, index) + char + str.substr(index + 1));
+}
+
 function drawGrid() {
   ctx.strokeStyle = "#a1a1a1";
   for (let y = 0; y < boardHeight + 1; y++) {
