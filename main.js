@@ -20,6 +20,16 @@ function create2DArray(rows, columns) {
   return arr;
 }
 
+function replaceChar(str, index, char) {
+  console.log(`str: ${str}, index: ${index}, char: ${char}`); 
+  if (index < str.length) {
+    return(str.substr(0, index) + char + str.substr(index + 1));
+  } else {
+    console.log("Index outside of string");
+    return(str.substr(0, index));
+  }
+}
+
 function drawGrid() {
   ctx.strokeStyle = "#a1a1a1";
   for (let y = 0; y < boardHeight + 1; y++) {
