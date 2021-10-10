@@ -21,8 +21,13 @@ function create2DArray(rows, columns) {
 }
 
 function replaceChar(str, index, char) {
-  console.log(`str: ${str}, index: ${index}, char: ${char}`);
-  return(str.substr(0, index) + char + str.substr(index + 1));
+  console.log(`str: ${str}, index: ${index}, char: ${char}`); 
+  if (index < str.length) {
+    return(str.substr(0, index) + char + str.substr(index + 1));
+  } else {
+    console.log("Index outside of string");
+    return(str.substr(0, index));
+  }
 }
 
 function drawGrid() {

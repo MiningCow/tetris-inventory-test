@@ -12,9 +12,9 @@ window.addEventListener("keyup", event => {
                 origin: {x: 1, y: 1},
                 color: "#FF0000",
                 shape: [
-                " # ",
-                "## ",
-                "#  "
+                " #",
+                "##",
+                "# "
             ]})
             break;
         case "2":
@@ -24,9 +24,9 @@ window.addEventListener("keyup", event => {
                 origin: {x: 1, y: 1},
                 color: "#00FF00",
                 shape: [
-                " # ",
-                " ##",
-                "  #"
+                "# ",
+                "##",
+                " #"
             ]})
             break;
         case "3":
@@ -36,9 +36,9 @@ window.addEventListener("keyup", event => {
                 origin: {x: 1, y: 1},
                 color: "#0000FF",
                 shape: [
-                " # ",
-                " # ",
-                "## "
+                " #",
+                " #",
+                "##"
             ]})
             break;
         case "4":
@@ -56,13 +56,13 @@ window.addEventListener("keyup", event => {
             heldItem = new Item({
                 x: mouseX,
                 y: mouseY,
-                origin: {x: 1, y: 1},
+                origin: {x: 0, y: 1},
                 color: "#00FFFF",
                 shape: [
-                " #  ",
-                " #  ",
-                " #  ",
-                " #  "
+                "#",
+                "#",
+                "#",
+                "#"
             ]})
             break;
         case "6":
@@ -73,30 +73,29 @@ window.addEventListener("keyup", event => {
                 color: "#FF00FF",
                 shape: [
                 " # ",
-                "###",
-                "   "
+                "###"
             ]})
             break;
         case "7":
             heldItem = new Item({
                 x: mouseX,
                 y: mouseY,
-                origin: {x: 1, y: 1},
+                origin: {x: 0, y: 1},
                 color: "#FFA500",
                 shape: [
-                " # ",
-                " # ",
-                " ##"
+                "# ",
+                "# ",
+                "##"
             ]})
             break;
         case "ArrowLeft":
-            heldItem.rotate("left");
+            heldItem.rotateLeft();
             break;
         case "ArrowRight":
-            heldItem.rotate("right");
+            heldItem.rotateRight();
             break;
         case "ArrowUp":
-            heldItem.rotate("flip");
+            heldItem.flip();
             break;
         case " ":
             heldItem = undefined;

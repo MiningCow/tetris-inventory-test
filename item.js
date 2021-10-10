@@ -8,31 +8,53 @@ class Item {
     this.color = color;
     this.id = Date.now();
   }
-  rotate(rotation) {
-    let rotatedShape = [...this.shape];
-    switch (rotation) {
-      case "left":
-        for (let y = -this.origin.y; y < this.shape.length - this.origin.y; y++) {
-          for (let x = -this.origin.x; x < this.shape.length - this.origin.x; x++) {
-            rotatedShape[y+1] = replaceChar(rotatedShape[y+1], x+1, this.shape[x+1].charAt(-y+1));
-          }
-        }
-        this.shape = rotatedShape;
-        break;
-      case "right":
-        for (let y = -this.origin.y; y < this.shape.length - this.origin.y; y++) {
-          for (let x = -this.origin.x; x < this.shape.length - this.origin.x; x++) {
-            rotatedShape[y+1] = replaceChar(rotatedShape[y+1], x+1, this.shape[-x+1].charAt(y+1));
-          }
-        }
-        this.shape = rotatedShape;
-        break;
-      case "flip":
-        break;
-      default:
-        console.log("Incorrect rotation arguments");
-        return;
+  rotateLeft() {
+    let shape = this.shape;
+    let newShape = [];
+    let xMax = shape[0].length;
+    let yMax = shape.length;
+    let newLine = "";
+    for (let x = xMax-1; x >= 0; x--){
+      for(let y = 0; y < yMax; y++){
+        newLine += shape[y].charAt(x);
+      }
+      newShape.push(newLine);
+      newLine = "";
     }
+    this.shape = newShape;
+    this.origin = {x: this.origin.y, y: 0-this.origin.x + this.shape.length - 1}
+  }
+  rotateRight() {
+    let shape = this.shape;
+    let newShape = [];
+    let xMax = shape[0].length;
+    let yMax = shape.length;
+    let newLine = "";
+    for (let x = 0; x < xMax; x++){
+      for(let y = yMax-1; y >= 0; y--){
+        newLine += shape[y].charAt(x);
+      }
+      newShape.push(newLine);
+      newLine = "";
+    }
+    this.shape = newShape;
+    this.origin = {x: 0-this.origin.y + this.shape[0].length - 1, y: this.origin.x}
+  }
+  flip() {
+    let shape = this.shape;
+    let newShape = [];
+    let xMax = shape[0].length-1;
+    let yMax = shape.length-1;
+    let newLine = "";
+    for(let y = yMax; y >= 0; y--){
+      for (let x = xMax; x >= 0; x--){
+        newLine += shape[y].charAt(x);
+      }
+      newShape.push(newLine);
+      newLine = "";
+    }
+    this.shape = newShape;
+    this.origin = {x: 0-this.origin.x + xMax, y: 0-this.origin.y + yMax}
   }
   place () {
     let placeX = Math.abs(Math.round((mouseX - tileSize/2) / tileSize));
