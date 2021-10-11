@@ -4,7 +4,7 @@ window.addEventListener("keyup", event => {
         return;
     }
 
-    switch (event.key) {
+    switch (event.key.toLowerCase()) {
         case "1":
             heldItem = new Item({
                 x: mouseX,
@@ -88,17 +88,23 @@ window.addEventListener("keyup", event => {
                 "##"
             ]})
             break;
-        case "ArrowLeft":
+        case "arrowleft":
             heldItem.rotateLeft();
             break;
-        case "ArrowRight":
+        case "arrowright":
             heldItem.rotateRight();
             break;
-        case "ArrowUp":
+        case "arrowup":
             heldItem.flip();
             break;
         case " ":
             heldItem = undefined;
+            break;
+        case "r":
+            if (confirm("Are you sure you want to reset the board?")) {
+                board = create2DArray(boardWidth, boardHeight);
+                items = [];
+            }
             break;
         default:
             console.log(event.key);
