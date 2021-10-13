@@ -57,15 +57,15 @@ class Item {
     this.origin = {x: 0-this.origin.x + xMax, y: 0-this.origin.y + yMax}
   }
   place () {
-    let placeX = Math.abs(Math.round((mouseX - tileSize/2) / tileSize));
-    let placeY = Math.abs(Math.round((mouseY - tileSize/2) / tileSize));
+    let placeX = Math.abs(Math.round((mouseX - tileSize/2) / tileSize - this.origin.x));
+    let placeY = Math.abs(Math.round((mouseY - tileSize/2) / tileSize - this.origin.y));
     let tileLocations = [];
     let canPlace = true;
     for (let y = 0; y < this.shape.length; y++) {
       for (let x = 0; x < this.shape[y].length; x++) {
         if (this.shape[y].charAt(x) == "#" && canPlace) {
-          let tileX = placeX + x - this.origin.x;
-          let tileY = placeY + y - this.origin.y;
+          let tileX = placeX + x;
+          let tileY = placeY + y;
 
           if (tileX >= boardWidth || tileX < 0 || tileY >= boardHeight || tileY < 0) {
             canPlace = false;
@@ -81,8 +81,8 @@ class Item {
     }
     if (canPlace) {
       tileLocations.forEach(({tileX, tileY}) => { board[tileX][tileY] = { color: this.color, id: this.id }});
-      heldItem.x = placeX*tileSize;
-      heldItem.y = placeY*tileSize;
+      heldItem.x = (placeX + this.origin.x) * tileSize;
+      heldItem.y = (placeY + this.origin.y) * tileSize;
       items.push(heldItem);
       heldItem = undefined;
     } else {
