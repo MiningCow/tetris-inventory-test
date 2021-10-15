@@ -20,6 +20,14 @@ function create2DArray(rows, columns) {
   return arr;
 }
 
+function deleteItem(x, y) {
+  console.log("deleteItem " + x, y);
+  board.forEach(row => {
+    row.filter((tile) => tile.id == board[x][y].id);
+  })
+  items = items.filter((item) => item.id == board[x][y].id);
+}
+
 function replaceChar(str, index, char) {
   console.log(`str: ${str}, index: ${index}, char: ${char}`); 
   if (index < str.length) {

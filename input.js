@@ -45,7 +45,7 @@ window.addEventListener("keyup", event => {
             heldItem = new Item({
                 x: mouseX,
                 y: mouseY,
-                origin: {x: 1, y: 1},
+                origin: {x: 0.5, y: 0.5},
                 color: "#FFFF00",
                 shape: [
                 "##",
@@ -56,7 +56,7 @@ window.addEventListener("keyup", event => {
             heldItem = new Item({
                 x: mouseX,
                 y: mouseY,
-                origin: {x: 0, y: 1},
+                origin: {x: 0, y: 1.5},
                 color: "#00FFFF",
                 shape: [
                 "#",
@@ -119,7 +119,12 @@ canvas.addEventListener("mousemove", event => {
     mouseY = Math.round(event.clientY - rect.top);
 });
 canvas.addEventListener("mousedown", event => {
-    if (event.button == 0 && heldItem) heldItem.place();
+    if (event.button == 0 && heldItem) {
+        heldItem.place();
+    } else if (event.button == 2) {
+        console.log("test");
+        deleteItem(Math.abs(Math.round((mouseX - tileSize/2) / tileSize)), Math.abs(Math.round((mouseY - tileSize/2) / tileSize)));
+    }
 });
-
+canvas.addEventListener("contextmenu", e => e.preventDefault());
 //#FFE800 Nice yellow color
